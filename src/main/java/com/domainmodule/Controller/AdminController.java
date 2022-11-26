@@ -15,7 +15,7 @@ public class AdminController extends HelloApplication {
     AdminDAO adminDAO = new AdminDAOImpl();
 
     @POST
-    @Path("/addAdmin")
+    @Path("/add")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     public Response add_admin(Admin admin){
@@ -25,7 +25,7 @@ public class AdminController extends HelloApplication {
             return Response.status(200).entity("Success").build();
         }
 
-        return Response.status(400).entity("Failure while adding department").build();
+        return Response.status(400).entity("Failure while adding admin").build();
     }
 
     @GET

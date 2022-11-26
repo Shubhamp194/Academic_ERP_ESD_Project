@@ -7,6 +7,8 @@ import com.domainmodule.Util.HibernateSessionUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,91 @@ public class DomainDAOImpl implements DomainDAO {
     @Override
     public boolean modifyDomain(int domId, Domain domObj) {
         return false;
+    }
+
+    @Override
+    public boolean updateDomainProgram(int domainId, String updatedName) {
+        try (Session session = HibernateSessionUtil.getSession()) {
+            Transaction t = session.beginTransaction();
+
+            Query q = session.createQuery("from Domain where domain_id=:ID");
+            q.setParameter("ID", domainId);
+
+            Domain result = (Domain)q.list().get(0);
+            result.setProgram(updatedName);
+            session.update(result);
+            t.commit();
+            return true;
+
+        }
+        catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+            return false;
+        }
+    }
+
+
+    @Override
+    public boolean updateDomainCapacity(int domainId, int updatedCapacity) {
+        try (Session session = HibernateSessionUtil.getSession()) {
+            Transaction t = session.beginTransaction();
+
+            Query q = session.createQuery("from Domain where domain_id=:ID");
+            q.setParameter("ID", domainId);
+
+            Domain result = (Domain)q.list().get(0);
+            result.setCapacity(updatedCapacity);
+            session.update(result);
+            t.commit();
+            return true;
+
+        }
+        catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+            return false;
+        }
+    }
+
+    @Override
+    public boolean updateDomainQualification(int domainId, String updatedQualification) {
+        try (Session session = HibernateSessionUtil.getSession()) {
+            Transaction t = session.beginTransaction();
+
+            Query q = session.createQuery("from Domain where domain_id=:ID");
+            q.setParameter("ID", domainId);
+
+            Domain result = (Domain)q.list().get(0);
+            result.setQualification(updatedQualification);
+            session.update(result);
+            t.commit();
+            return true;
+
+        }
+        catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+            return false;
+        }
+    }
+
+    @Override
+    public boolean updateDomainBatch(int domainId, String updatedBatch) {
+        try (Session session = HibernateSessionUtil.getSession()) {
+            Transaction t = session.beginTransaction();
+
+            Query q = session.createQuery("from Domain where domain_id=:ID");
+            q.setParameter("ID", domainId);
+
+            Domain result = (Domain)q.list().get(0);
+            result.setBatch(updatedBatch);
+            session.update(result);
+            t.commit();
+            return true;
+
+        }
+        catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+            return false;
+        }
     }
 
     @Override

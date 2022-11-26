@@ -10,6 +10,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int student_id;
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="roll_number",nullable = false,unique = true)
     private int roll_number;
 
@@ -36,7 +37,7 @@ public class Student {
 
 
     @ManyToOne
-    @JoinColumn(name = "domain_id")
+    @JoinColumn(name = "s_domain_id")
     private Domain s_domain_id;
 
     @Column(name="specialisation")
@@ -49,7 +50,7 @@ public class Student {
     }
 
     public Student(int roll_number, String first_name, String last_name, String email, String photograph_path, float cgpa, float total_credits, int graduation_year, Domain domain_id, int specialisation, int placement_id) {
-        this.roll_number = roll_number;
+//        this.roll_number = roll_number;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;

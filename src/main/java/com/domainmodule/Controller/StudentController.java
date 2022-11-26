@@ -23,7 +23,7 @@ public class StudentController {
             return Response.status(200).entity("Success").build();
         }
 
-        return Response.status(400).entity("Failure while adding department").build();
+        return Response.status(400).entity("Failure while adding student").build();
     }
 
     @GET

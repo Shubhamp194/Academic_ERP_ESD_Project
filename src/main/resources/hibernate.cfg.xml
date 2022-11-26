@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/erp?createDatabaseIfNotExist=true&amp;useSSL=false</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/ERP?createDatabaseIfNotExist=true&amp;useSSL=false</property>
         <property name="connection.username">Shubham</property>
         <property name="connection.password">Password</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
@@ -14,5 +14,8 @@
         <mapping class="com.domainmodule.Bean.Domain"/>
         <mapping class="com.domainmodule.Bean.Student"/>
         <mapping class="com.domainmodule.Bean.Admin"/>
+        <mapping class="com.domainmodule.Bean.Employee"/>
+        <mapping class="com.domainmodule.Bean.Department"/>
+
     </session-factory>
 </hibernate-configuration>

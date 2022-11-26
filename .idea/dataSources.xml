@@ -12,7 +12,7 @@
       <jdbc-url>jdbc:mysql://localhost:3306/ERP?createDatabaseIfNotExist=true&amp;useSSL=false</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="@localhost" uuid="744c21ea-c0c7-4e5a-ab07-9da5ceb340ac">
+    <data-source source="LOCAL" name="@localhost" uuid="ad1a92d5-ac31-4805-8843-3afe0fe612e1">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

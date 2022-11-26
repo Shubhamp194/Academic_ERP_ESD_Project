@@ -63,17 +63,4 @@ public class AdminDAOImpl implements AdminDAO {
             return null;
         }
     }
-
-    @Override
-    public String hello() {
-        return null;
-    }
-
-    /*@GET
-    @Path("/greet")
-    @Produces("text/plain")
-    public String hello() {
-
-        return "Hello, admin!";
-    }*/
 }

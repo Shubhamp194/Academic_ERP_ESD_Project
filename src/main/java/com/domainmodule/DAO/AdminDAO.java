@@ -11,5 +11,4 @@ public interface AdminDAO {
     Admin getAdminById(int admId);
     List<Admin> getAdminList();
 
-    public String hello();
 }

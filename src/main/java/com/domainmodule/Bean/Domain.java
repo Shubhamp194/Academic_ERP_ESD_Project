@@ -12,17 +12,17 @@ public class Domain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int domain_id;
 
-    @Column(name="program",nullable = false,unique = true)
+    @Column(name="program",nullable = false )
     private String program;
 
-    @Column(name="batch",nullable = false,unique = true)
+    @Column(name="batch",nullable = false)
     private String batch;
 
-    @Column(name="capacity",nullable = false,unique = false)
+    @Column(name="capacity",nullable = false)
     private int capacity;
 
-    @Column(name="qualification",nullable = true,unique = false)
-    private int qualification;
+    @Column(name="qualification")
+    private String qualification;
 
     @OneToMany(mappedBy = "s_domain_id", fetch = FetchType.EAGER)
     @JsonIgnore
@@ -31,7 +31,7 @@ public class Domain {
     public Domain() {
     }
 
-    public Domain(int domain_id, String program, String batch, int capacity, int qualification,List<Student> studentList ) {
+    public Domain(int domain_id, String program, String batch, int capacity, String qualification,List<Student> studentList ) {
         this.domain_id = domain_id;
         this.program = program;
         this.batch = batch;
@@ -72,11 +72,11 @@ public class Domain {
         this.capacity = capacity;
     }
 
-    public int getQualification() {
+    public String getQualification() {
         return qualification;
     }
 
-    public void setQualification(int qualification) {
+    public void setQualification(String qualification) {
         this.qualification = qualification;
     }
 
@@ -86,5 +86,17 @@ public class Domain {
 
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
+    }
+
+    @Override
+    public String toString() {
+        return "Domain{" +
+                "domain_id=" + domain_id +
+                ", program='" + program + '\'' +
+                ", batch='" + batch + '\'' +
+                ", capacity=" + capacity +
+                ", qualification='" + qualification + '\'' +
+                ", studentList=" + studentList +
+                '}';
     }
 }
