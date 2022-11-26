@@ -37,8 +37,8 @@ public class Student {
 
 
     @ManyToOne
-    @JoinColumn(name = "s_domain_id")
-    private Domain s_domain_id;
+    @JoinColumn(name = "domain")
+    private Domain domain;
 
     @Column(name="specialisation")
     private int specialisation;
@@ -58,7 +58,7 @@ public class Student {
         this.cgpa = cgpa;
         this.total_credits = total_credits;
         this.graduation_year = graduation_year;
-        this.s_domain_id = domain_id;
+        this.domain = domain_id;
         this.specialisation = specialisation;
         this.placement_id = placement_id;
     }
@@ -136,11 +136,11 @@ public class Student {
     }
 
     public Domain getDomain_id() {
-        return s_domain_id;
+        return domain;
     }
 
     public void setDomain_id(Domain domain_id) {
-        this.s_domain_id = domain_id;
+        this.domain = domain_id;
     }
 
     public int getSpecialisation() {

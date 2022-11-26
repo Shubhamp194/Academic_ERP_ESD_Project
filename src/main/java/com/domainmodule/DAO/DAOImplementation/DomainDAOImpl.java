@@ -155,7 +155,7 @@ public class DomainDAOImpl implements DomainDAO {
     public List<Student> studentListInDomain(int domId) {
         try (Session session = HibernateSessionUtil.getSession()) {
             Domain domObj=session.get(Domain.class, domId);
-            return domObj.getStudentList();
+//            return domObj.getStudentList();
         } catch (HibernateException exception) {
             System.out.print(exception.getLocalizedMessage());
         }
