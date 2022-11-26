@@ -40,7 +40,7 @@ public class DomainController {
     @Path("/get/{d_id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
-    public Response get_all_domains(@PathParam("d_id") int id){
+    public Response get_domain_byId(@PathParam("d_id") int id){
         System.out.println(id);
 
         Domain domObj = this.domDAO.getDomainById(id);
@@ -94,18 +94,6 @@ public class DomainController {
         return Response.status(404).entity("Failure while updating domain's batch").build();
     }
 
-    @GET
-    @Path("/getDomainStudents/{d_id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.TEXT_PLAIN)
-    public Response get_students_ofDomain(@PathParam("d_id") int id){
-        System.out.println(id);
 
-        List<Student> stuObjList = this.domDAO.studentListInDomain(id);
-//        emp.setDepartment(emp.getDepartment());
-        System.out.println(stuObjList);
-
-        return Response.status(200).entity(stuObjList).build();
-    }
 }
 

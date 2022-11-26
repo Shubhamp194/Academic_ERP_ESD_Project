@@ -151,15 +151,15 @@ public class DomainDAOImpl implements DomainDAO {
         }
     }
 
-    @Override
-    public List<Student> studentListInDomain(int domId) {
-        try (Session session = HibernateSessionUtil.getSession()) {
-            Domain domObj=session.get(Domain.class, domId);
-//            return domObj.getStudentList();
-        } catch (HibernateException exception) {
-            System.out.print(exception.getLocalizedMessage());
-        }
-        return null;
-    }
+//    @Override
+//    public List<Student> studentListInDomain(int domId) {
+//        try (Session session = HibernateSessionUtil.getSession()) {
+//            Domain domObj=session.get(Domain.class, domId);
+////            return domObj.getStudentList();
+//        } catch (HibernateException exception) {
+//            System.out.print(exception.getLocalizedMessage());
+//        }
+//        return null;
+//    }
 
 }

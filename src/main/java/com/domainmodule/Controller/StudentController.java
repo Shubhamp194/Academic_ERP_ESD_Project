@@ -1,5 +1,6 @@
 package com.domainmodule.Controller;
 
+import com.domainmodule.Bean.Domain;
 import com.domainmodule.Bean.Student;
 import com.domainmodule.DAO.DAOImplementation.StudentDAOImpl;
 import com.domainmodule.DAO.StudentDAO;
@@ -33,5 +34,22 @@ public class StudentController {
         List<Student> students = stuDAO.getStudentList();
         System.out.printf("Hello world");
         return Response.status(200).entity(students ).build();
+    }
+
+    @GET
+    @Path("/getStudentsByDomain/{domain_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.TEXT_PLAIN)
+    public Response get_students_byDomain(@PathParam("domain_id") int domId){
+        System.out.println(domId);
+
+        Domain domain = new Domain();
+        domain.setDomain_id(domId);
+
+        List<Student> stuObjList = stuDAO.getStudentByDomain(domain);
+//        emp.setDepartment(emp.getDepartment());
+        System.out.println(stuObjList);
+
+        return Response.status(200).entity(stuObjList).build();
     }
 }

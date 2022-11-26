@@ -10,11 +10,8 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int admin_id;
 
-    @Column(name = "name",nullable = false)
-    private String name;
-
-    @Column(name = "login_id",nullable = false,unique = true)
-    private String login_id;
+    @Column(name = "email",nullable = false,unique = true)
+    private String email;
 
     @Column(name = "password",nullable = false)
     private String password;
@@ -22,10 +19,8 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(int admin_id, String name, String login_id, String password) {
-        this.admin_id = admin_id;
-        this.name = name;
-        this.login_id = login_id;
+    public Admin(String email, String password) {
+        this.email = email;
         this.password = password;
     }
 
@@ -37,20 +32,12 @@ public class Admin {
         this.admin_id = admin_id;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLogin_id() {
-        return login_id;
-    }
-
-    public void setLogin_id(String login_id) {
-        this.login_id = login_id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -59,5 +46,14 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "admin_id=" + admin_id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
