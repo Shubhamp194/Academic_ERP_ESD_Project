@@ -31,9 +31,22 @@ public class AdminController extends HelloApplication {
     @GET
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get_all_departments(){
+    public Response get_all_admins(){
         List<Admin> admins = adminDAO.getAdminList();
         System.out.printf("Hello world");
         return Response.status(200).entity(admins).build();
+    }
+
+    @POST
+    @Path("/login")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response login(Admin admin) {
+        Admin loggedInAdmin = adminDAO.login(admin);
+
+        if (loggedInAdmin == null)
+            return Response.status(401).build();
+        else
+            return Response.ok().entity(loggedInAdmin).build();
     }
 }

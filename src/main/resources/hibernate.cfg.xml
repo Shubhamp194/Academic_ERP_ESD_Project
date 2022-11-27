@@ -14,8 +14,6 @@
         <mapping class="com.domainmodule.Bean.Domain"/>
         <mapping class="com.domainmodule.Bean.Student"/>
         <mapping class="com.domainmodule.Bean.Admin"/>
-        <mapping class="com.domainmodule.Bean.Employee"/>
-        <mapping class="com.domainmodule.Bean.Department"/>
 
     </session-factory>
 </hibernate-configuration>

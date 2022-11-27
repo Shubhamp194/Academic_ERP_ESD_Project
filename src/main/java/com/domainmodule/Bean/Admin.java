@@ -19,7 +19,8 @@ public class Admin {
     public Admin() {
     }
 
-    public Admin(String email, String password) {
+    public Admin(int admin_id, String email, String password) {
+        this.admin_id = admin_id;
         this.email = email;
         this.password = password;
     }
@@ -48,12 +49,4 @@ public class Admin {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "admin_id=" + admin_id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }

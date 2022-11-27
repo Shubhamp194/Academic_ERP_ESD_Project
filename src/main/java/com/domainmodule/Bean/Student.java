@@ -35,10 +35,9 @@ public class Student {
     @Column(name="graduation_year")
     private int graduation_year;
 
-
     @ManyToOne
-    @JoinColumn(name = "domain_id")
-    private Domain domain_id;
+    @JoinColumn(name = "domain")
+    private Domain domain;
 
     @Column(name="specialisation")
     private int specialisation;
@@ -49,8 +48,9 @@ public class Student {
     public Student() {
     }
 
-    public Student(int roll_number, String first_name, String last_name, String email, String photograph_path, float cgpa, float total_credits, int graduation_year, Domain domain_id, int specialisation, int placement_id) {
-//        this.roll_number = roll_number;
+    public Student(int student_id, int roll_number, String first_name, String last_name, String email, String photograph_path, float cgpa, float total_credits, int graduation_year, Domain domain, int specialisation, int placement_id) {
+        this.student_id = student_id;
+        this.roll_number = roll_number;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
@@ -58,17 +58,17 @@ public class Student {
         this.cgpa = cgpa;
         this.total_credits = total_credits;
         this.graduation_year = graduation_year;
-        this.domain_id = domain_id;
+        this.domain = domain;
         this.specialisation = specialisation;
         this.placement_id = placement_id;
     }
 
-    public int getStudent_id() {
-        return student_id;
-    }
-
     public void setStudent_id(int student_id) {
         this.student_id = student_id;
+    }
+
+    public int getStudent_id() {
+        return student_id;
     }
 
     public int getRoll_number() {
@@ -135,12 +135,12 @@ public class Student {
         this.graduation_year = graduation_year;
     }
 
-    public Domain getDomain_id() {
-        return domain_id;
+    public Domain getDomain() {
+        return domain;
     }
 
-    public void setDomain_id(Domain domain_id) {
-        this.domain_id = domain_id;
+    public void setDomain(Domain domain) {
+        this.domain = domain;
     }
 
     public int getSpecialisation() {

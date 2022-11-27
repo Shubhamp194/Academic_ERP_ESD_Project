@@ -10,5 +10,6 @@ public interface AdminDAO {
     boolean addAdmin(Admin admObj);
     Admin getAdminById(int admId);
     List<Admin> getAdminList();
+    Admin login(Admin admin);
 
 }

@@ -31,7 +31,8 @@ public class Domain {
     public Domain() {
     }
 
-    public Domain(int domain_id, String program, String batch, int capacity, String qualification,List<Student> studentList ) {
+
+    public Domain(int domain_id, String program, String batch, int capacity, String qualification, List<Student> studentList) {
         this.domain_id = domain_id;
         this.program = program;
         this.batch = batch;
@@ -40,12 +41,12 @@ public class Domain {
 //        this.studentList = studentList;
     }
 
-    public int getDomain_id() {
-        return domain_id;
-    }
-
     public void setDomain_id(int domain_id) {
         this.domain_id = domain_id;
+    }
+
+    public int getDomain_id() {
+        return domain_id;
     }
 
     public String getProgram() {
@@ -87,16 +88,4 @@ public class Domain {
 //    public void setStudentList(List<Student> studentList) {
 //        this.studentList = studentList;
 //    }
-
-    @Override
-    public String toString() {
-        return "Domain{" +
-                "domain_id=" + domain_id +
-                ", program='" + program + '\'' +
-                ", batch='" + batch + '\'' +
-                ", capacity=" + capacity +
-                ", qualification='" + qualification + '\'' +
-//                ", studentList=" + studentList +
-                '}';
-    }
 }

@@ -17,15 +17,13 @@ import java.util.List;
 public class AdminDAOImpl implements AdminDAO {
     @Override
     public boolean addAdmin(Admin admObj) {
-        try(Session session = HibernateSessionUtil.getSession()){  // session created got access of hibernate session object
-            Transaction transaction = session.beginTransaction();  // transaction initiated
-            session.save(admObj);                                 // using session object to save java object into MySQL
-            transaction.commit();                                  // committing transaction
+        try(Session session = HibernateSessionUtil.getSession()){
+            Transaction transaction = session.beginTransaction();
+            session.save(admObj);
+            transaction.commit();
             return true;
         }
         catch (HibernateException exception) {
-            // if Hibernate Exception occurs return false
-            // for related exception we can maintain separate logger / Sysout messages for easy debugging
             System.out.println("Hibernate Exception");
             System.out.print(exception.getLocalizedMessage());
             return false;
@@ -62,5 +60,31 @@ public class AdminDAOImpl implements AdminDAO {
             System.out.print(exception.getLocalizedMessage());
             return null;
         }
+    }
+
+    @Override
+    public Admin login(Admin admin) {
+        try (Session session = HibernateSessionUtil.getSession();){
+            String adminEmail = admin.getEmail();
+            String adminPassword = admin.getPassword();
+
+            List<Object> result = new ArrayList<Object>(
+                    session.createQuery("FROM Admin WHERE email = :adminEmail and password = :adminPassword")
+                            .setParameter("adminEmail", adminEmail)
+                            .setParameter("adminPassword", adminPassword)
+                            .list()
+            );
+
+            // If no valid Student found, return null so that login failure is understood
+            if (result.size() == 0)
+                return null;
+            else
+                return (Admin) result.get(0);
+        }
+        catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+        }
+
+        return null;
     }
 }
