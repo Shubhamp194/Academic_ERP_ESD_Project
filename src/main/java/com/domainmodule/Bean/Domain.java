@@ -24,9 +24,9 @@ public class Domain {
     @Column(name="qualification")
     private String qualification;
 
-//    @OneToMany(mappedBy = "domain", fetch = FetchType.EAGER)
-//    @JsonIgnore
-//    private List<Student> studentList;
+    @OneToMany(mappedBy = "domain", fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Student> studentList;
 
     public Domain() {
     }
@@ -38,7 +38,7 @@ public class Domain {
         this.batch = batch;
         this.capacity = capacity;
         this.qualification = qualification;
-//        this.studentList = studentList;
+        this.studentList = studentList;
     }
 
     public void setDomain_id(int domain_id) {
@@ -81,11 +81,11 @@ public class Domain {
         this.qualification = qualification;
     }
 
-//    public List<Student> getStudentList() {
-//        return studentList;
-//    }
-//
-//    public void setStudentList(List<Student> studentList) {
-//        this.studentList = studentList;
-//    }
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
 }

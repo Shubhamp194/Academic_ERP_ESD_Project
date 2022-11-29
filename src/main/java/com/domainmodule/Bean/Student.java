@@ -45,6 +45,7 @@ public class Student {
     @Column(name="placement_id")
     private int placement_id;
 
+
     public Student() {
     }
 
@@ -135,9 +136,7 @@ public class Student {
         this.graduation_year = graduation_year;
     }
 
-    public Domain getDomain() {
-        return domain;
-    }
+    public Domain getDomain() {return domain;}
 
     public void setDomain(Domain domain) {
         this.domain = domain;
